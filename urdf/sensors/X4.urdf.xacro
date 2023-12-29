@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro">	
+
+	<material name="Black">
+    <color rgba="0.2 0.2 0.2 1.0"/> 
+  </material>
+
+	<material name="Blue">
+    <color rgba="0.0 0.0 1.0 1.0"/> 
+  </material>
+
+	<xacro:macro name="x4" params="parent name *origin">
+
+		<!-- joint between profiles_link and base_link -->
+		<joint name="${name}_plate_joint" type="fixed" >
+			<xacro:insert_block name="origin" />
+			<parent link="${parent}" />
+			<child link="${name}_plate_link" />
+		</joint>
+
+		<link name="${name}_plate_link">
+			<inertial>
+				<origin xyz="0 0 0.0" rpy="0 0 0"/>
+				<mass value="1"/>
+				<inertia ixx="0.01" ixy="0" ixz="0" iyy="0.01" iyz="0" izz="0.01" />
+			</inertial>
+			
+			<visual>
+				<origin xyz="-0.005 0 0" rpy="0 0 -1.570796" />
+				<geometry>
+					<mesh scale="0.001 0.001 0.001" filename="package://youbot_description/meshes/sensors/x4_base.stl" />
+				</geometry>
+				<material name="Black"/>
+			</visual>
+
+			<visual>
+				<origin xyz="-0.004 0 -0.0375" rpy="0 0 0" />
+				<geometry>
+					<mesh scale="0.001 0.001 0.001" filename="package://youbot_description/meshes/sensors/x4_connection_plate.stl" />
+				</geometry>
+				<material name="Black"/>
+			</visual>
+		</link>
+
+		<joint name="${name}_sensor_joint" type="fixed" >
+			<origin xyz="-0.004 0 -0.048" rpy="3.141592654 0 0"/>
+			<parent link="${name}_plate_link" />
+			<child link="${name}_laser_link" />
+		</joint>
+
+		<link name="${name}_laser_link">
+			<visual>
+				<origin xyz="0.0 0 0" rpy="0 0 0" />
+				<geometry>
+					<mesh scale="0.001 0.001 0.001" filename="package://youbot_description/meshes/sensors/x4_sensor_circle.stl" />
+				</geometry>
+				<material name="Blue"/>
+			</visual>
+		</link>
+
+
+		<!-- extensions -->
+		
+	
+	</xacro:macro>
+
+</robot>
