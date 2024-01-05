@@ -48,10 +48,10 @@
   </xacro:x4>
 
   <!-- Kamera -->
-  <!--xacro:include filename="$(find youbot_description)/urdf/sensors/asus_xtion_camera.urdf.xacro" />
+  <xacro:include filename="$(find youbot_description)/urdf/sensors/asus_xtion_camera.urdf.xacro" />
   <xacro:asus_xtion_camera name="camera" parent="arm_link_5" tilt="0.0">
-    <origin xyz="-0.02 0 -0.04" rpy="0 -1.60 0" />
-  </xacro:asus_xtion_camera-->
+    <origin xyz="-0.04 0 -0.0086" rpy="0 -1.60 0" />
+  </xacro:asus_xtion_camera>
 
 
 </robot>
