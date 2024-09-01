@@ -40,11 +40,11 @@
   </xacro:youbot_gripper>
 
   <xacro:youbot_profile_frame name="profiles" parent="base_link">
-    <origin xyz="0.0 0 0.0307" rpy="0 0 0" /> <!-- profiles origin frme is on the base upper surface of the base plate-->
+    <origin xyz="0.0 0 0.044" rpy="0 0 0" /> <!-- profiles origin frme is on the base upper surface of the base plate-->
   </xacro:youbot_profile_frame>
 
   <xacro:x4 name="x4" parent="base_link">
-    <origin xyz="-0.369 0 0.0447" rpy="0 0 0" /> <!-- profiles origin frme is on the base upper surface of the base plate-->
+    <origin xyz="-0.369 0 0.058" rpy="0 0 0" /> <!-- profiles origin frme is on the base upper surface of the base plate-->
   </xacro:x4>
 
   <!-- Kamera -->
