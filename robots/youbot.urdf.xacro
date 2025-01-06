@@ -23,6 +23,8 @@
   <!-- youbot X4 LiDAR -->
   <xacro:include filename="$(find youbot_description)/urdf/sensors/X4.urdf.xacro" /> 
 
+  <!-- youbot aruco marker on X4 LiDAR -->
+  <xacro:include filename="$(find youbot_description)/urdf/aruco_marker/aruco_marker_0.urdf.xacro" /> 
 
   <!-- Now we can start using the macros included above to define the actual youbot -->
   <xacro:youbot_base name="base" namespace=""/>
@@ -43,6 +45,7 @@
     <origin xyz="0.0 0 0.044" rpy="0 0 0" /> <!-- profiles origin frme is on the base upper surface of the base plate-->
   </xacro:youbot_profile_frame>
 
+  <!-- LiDAR -->
   <xacro:x4 name="x4" parent="base_link">
     <origin xyz="-0.369 0 0.058" rpy="0 0 0" /> <!-- profiles origin frme is on the base upper surface of the base plate-->
   </xacro:x4>
@@ -50,8 +53,13 @@
   <!-- Kamera -->
   <xacro:include filename="$(find youbot_description)/urdf/sensors/asus_xtion_camera.urdf.xacro" />
   <xacro:asus_xtion_camera name="camera" parent="arm_link_5" tilt="0.0">
-    <origin xyz="-0.04 0 -0.0086" rpy="0 -1.60 0" />
+    <origin xyz="-0.011 -0.02 -0.0286" rpy="0 -1.60 0" />
   </xacro:asus_xtion_camera>
+
+  <!-- aruco marker on LiDAR -->
+  <xacro:aruco_marker_0 name="aruco_marker_0" parent="x4_plate_link">
+    <origin xyz="0 0 0.005" rpy="0 0 0" /> <!-- profiles origin frme is on the base upper surface of the base plate-->
+  </xacro:aruco_marker_0>
 
 
 </robot>
